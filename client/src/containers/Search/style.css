@@ -1,0 +1,31 @@
+.search-container {}
+
+.search-container__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.search-container__form-input {
+    border: 1px solid#d8232a;
+    height: 40px;
+    padding-left: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.search-container__form-btn {
+    width: 50px;
+    max-width: 400px;
+    height: 40px;
+    border: none;
+    background: #d8232a;
+    color: white;
+    /* font-size: 13px; */
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    cursor: pointer;
+}

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Homepage from "./Homepage";
 import ProductsList from "./ProductsList";
 import ProductDetails from "./ProductDetails";
+import Search from "./Search";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                         <Route path="/" exact component={Homepage} />
                         <Route path="/products" exact component={ProductsList} />
                         <Route path="/product-details" exact component={ProductDetails} />
+                        <Route path="/search" exact component={Search} />
                     </div>
                 </Switch>
                 <Footer />
