@@ -43,6 +43,20 @@ exports.getProducts = (req, res) => {
         })
 }
 
+exports.getProductsByProductId = (req, res) => {
+    let query = {};
+
+    if (req.query.productId) query._id = req.query.productId;
+
+    Product.findOne(query)
+        .then(response => {
+            res.send(response);
+        })
+        .catch(error => {
+            res.status(400).json({ "message": "Unable to fetch", error });
+        })
+}
+
 exports.removeProduct = (req, res) => {
     let productId = req.params.id;
     Product.remove({ _id: productId })
