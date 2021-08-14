@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import queryString from 'query-string';
-import { getProducts } from "../../core/product";
+import { searchProducts } from "../../core/product";
 import "./style.css";
 import ProductsListing from "./ProductsListing";
 
@@ -16,7 +16,7 @@ const ProductsList = () => {
         const parsed = queryString.parse(location.search);
         console.log(parsed);
 
-        getProducts(parsed)
+        searchProducts(parsed)
             .then((products) => {
                 setProducts(products || []);
             })

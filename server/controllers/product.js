@@ -80,3 +80,15 @@ exports.getProductsBy = (req, res) => { // pending
             res.status(400).json({ "message": "Unable to fetch", error });
         })
 }
+
+exports.searchProducts = (req, res) => { // pending
+    let term = req.query.search;
+    console.log(req.query);
+    Product.find({ $text: { $search: term } })
+        .then(response => {
+            res.send(response);
+        })
+        .catch(error => {
+            res.status(400).json({ "message": "Unable to fetch", error });
+        })
+}
