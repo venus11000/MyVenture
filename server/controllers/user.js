@@ -2,7 +2,7 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");            //  to generate signed user
 const expressJwt = require("express-jwt");      //  for authorization check
 // const { errorHandler } = require('../helpers/dbErrorHandler');
-const { validateMobileNumber } = require("../helpers/common");
+// const { validateMobileNumber } = require("../helpers/common");
 
 exports.signup = (req, res) => {
     let user = new User(req.body);
@@ -15,7 +15,7 @@ exports.signup = (req, res) => {
             })
         })
         .catch(error => {
-            res.status(400).json({ "message": "Unable to register" });
+            res.status(400).json({ "message": "Unable to register", error });
         });
 }
 
@@ -49,7 +49,7 @@ exports.signin = (req, res) => {
             }
         })
         .catch(error => {
-            return res.status(400).json({ "message": "Email id is not registed!" });
+            return res.status(400).json({ "message": "Email id is not registed!", error });
         });
 }
 

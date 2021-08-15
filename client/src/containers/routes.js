@@ -5,6 +5,8 @@ import Homepage from "./Homepage";
 import ProductsList from "./ProductsList";
 import ProductDetails from "./ProductDetails";
 import Search from "./Search";
+import Login from "./Login";
+import Register from "./Register";
 
 const App = () => {
     return (
@@ -17,6 +19,8 @@ const App = () => {
                         <Route path="/products" exact component={ProductsList} />
                         <Route path="/product-details" exact component={ProductDetails} />
                         <Route path="/search" exact component={Search} />
+                        <Route path="/login" exact component={Login} />
+                        <Route path="/register" exact component={Register} />
                     </div>
                 </Switch>
                 <Footer />

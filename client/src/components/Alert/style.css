@@ -1,0 +1,22 @@
+.alert-container {
+    padding: 15px;
+    width: 100%;
+    font-size: 14px;
+    color: #fff;
+}
+
+.alert-container__success {
+    background: #009944;
+}
+
+.alert-container__error {
+    background: #cf000f;
+}
+
+.alert-container__warning {
+    background: #f0541e;
+}
+
+.alert-container__info {
+    background: #63c0df;
+}
