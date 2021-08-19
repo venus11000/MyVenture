@@ -16,6 +16,16 @@ exports.getCategories = (req, res) => {
         })
 }
 
+exports.getCategoryById = (req, res) => {
+    Category.findById(req.params.id)
+        .then(response => {
+            res.send(response);
+        })
+        .catch(error => {
+            res.status(400).json({ "message": "Unable to fetch", error });
+        })
+}
+
 exports.removeCategory = (req, res) => {
     let categoryId = req.params.id;
     Category.remove({ _id: categoryId })

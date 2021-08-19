@@ -40,7 +40,7 @@ exports.signin = (req, res) => {
                     //  generate token
                     let token = getToken(user);
                     return res.send({
-                        // user,
+                        user,
                         token
                     })
                 }
