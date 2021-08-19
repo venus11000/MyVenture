@@ -7,7 +7,7 @@ import "./style.css";
 const ProductsListing = ({ products = [] }) => {
     return (
         <div className="product-list-container">
-            {products.length === 0 ?
+            {products && (products.length === 0 ?
                 <div className="no-products">No Products Found...</div>
                 : products.map(product => (
                     <div className="product-card">
@@ -36,7 +36,7 @@ const ProductsListing = ({ products = [] }) => {
                             <Link className="btn-primary" to={"product-details?productId=" + product._id}>View More Details</Link>
                         </div>
                     </div>
-                ))}
+                )))}
         </div>
     );
 }
