@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCategories, getSubCategories } from "../../core/category";
+import { getCategories, getSubCategoriesByCategoryId } from "../../core/category";
 import "./style.css";
 
 const SubCategory = ({ categoryId }) => {
     const [subCategories, setSubCategories] = useState([]);
 
     useEffect(() => {
-        getSubCategories(categoryId)
+        getSubCategoriesByCategoryId(categoryId)
             .then((subCategories) => {
                 if (subCategories && subCategories.length > 0) setSubCategories(subCategories);
             })
@@ -37,6 +37,8 @@ const SubCategory = ({ categoryId }) => {
 const Header = () => {
     const [categories, setCategories] = useState([]);
     const [activeCategoryId, setActiveCat] = useState(null);
+    let user = localStorage.getItem("user");
+    user = user ? JSON.parse(user) : null;
 
     useEffect(() => {
         getCategories()
@@ -55,12 +57,21 @@ const Header = () => {
                 <Link to="/"><div className="header_logo">My Venture</div></Link>
                 <div>
                     <Link className="menu-item" to="/search"><i class="fas fa-search"></i> Search</Link>
-                    <Link className="menu-item" to="/account"><i class="far fa-user-circle"></i> Account</Link>
+                    {user ?
+                        <>
+                            <Link className="menu-item" to="/appointments">My Appointment</Link>
+                            <Link className="menu-item" to="/account"><i class="far fa-user-circle"></i> Account</Link>
+                        </>
+                        : <>
+                            <Link className="menu-item" to="/register">Register</Link>
+                            <Link className="menu-item" to="/login">Login</Link>
+                        </>
+                    }
                 </div>
             </div>
 
             {/* Secondary Header */}
-            <div className="category-items">
+            {!user && <div className="category-items">
                 {categories.map(category => (
                     <div className="category-wrapper" key={category._id}
                         onMouseEnter={() => setActiveCat(category._id)}
@@ -78,7 +89,34 @@ const Header = () => {
                         {category._id === activeCategoryId && <SubCategory categoryId={category._id} />}
                     </div>
                 ))}
-            </div>
+            </div>}
+
+            {user && user.isAdmin === "1" &&
+                <div className="category-items">
+                    <div class="dropdown">
+                        <button class="dropbtn">Category</button>
+                        <div class="dropdown-content">
+                            <Link to={"/category/create"}>Create</Link>
+                            <Link to={"/category/list"}>List</Link>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Sub Category</button>
+                        <div class="dropdown-content">
+                            <Link to={"/sub-category/create"}>Create</Link>
+                            <Link to={"/sub-category/list"}>List</Link>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Products</button>
+                        <div class="dropdown-content">
+                            <Link to={"/product/create"}>Create</Link>
+                            <Link to={"/product/list"}>List</Link>
+                        </div>
+                    </div>
+                </div>}
         </div>
     );
 }
