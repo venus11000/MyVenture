@@ -50,7 +50,7 @@ const ListProduct = () => {
                         <td className="category-list__td">{category.key}</td>
                         <td className="category-list__td">{category.createdAt}</td>
                         <td className="category-list__td">
-                            <Link className="action-btn" to={"/category/?id=" + category._id}><i class="far fa-edit"></i></Link>
+                            <Link className="action-btn" to={"/category/edit/" + category._id}><i class="far fa-edit"></i></Link>
                             <button className="action-btn" onClick={() => deleteCategory(category._id)}><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr>) :
