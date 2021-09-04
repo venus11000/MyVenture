@@ -83,7 +83,7 @@ const Register = () => {
 
                 <button className="register-form__btn" onClick={submit}>Register</button>
             </form>
-            {localStorage.getItem("token") && <Redirect to={"/"} />}
+            {localStorage.getItem("user") && <Redirect to={"/"} />}
         </div>
     );
 }
