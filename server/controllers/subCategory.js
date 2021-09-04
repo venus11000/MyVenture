@@ -16,6 +16,16 @@ exports.getSubCategories = (req, res) => {
         })
 }
 
+exports.getSubCategoriesById = (req, res) => {
+    SubCategory.findById(req.params.id)
+        .then(response => {
+            res.send(response);
+        })
+        .catch(error => {
+            res.status(400).json({ "message": "Unable to fetch", error });
+        })
+}
+
 exports.removeSubCategory = (req, res) => {
     let subCategoryId = req.params.id;
     SubCategory.remove({ _id: subCategoryId })
