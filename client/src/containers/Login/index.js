@@ -7,7 +7,8 @@ import "./style.css";
 const Login = () => {
     const [fields, setFields] = useState({
         email: "",
-        password: ""
+        password: "",
+        isAdmin: "0"
     });
 
     const [errors, setErrors] = useState({
@@ -43,8 +44,9 @@ const Login = () => {
         event.preventDefault();
         if (fields.password && fields.email) {
             let response = await login(fields);
-            if (response && response.token) {
+            if (response && response.user) {
                 localStorage.setItem("token", response.token);
+                localStorage.setItem("user", JSON.stringify(response.user));
                 history.push("/");
             } else {
                 setResponse(response);
@@ -68,9 +70,15 @@ const Login = () => {
                     {errors.password && <div>{errors.password}</div>}
                 </div>
 
+                <div className="input-container checkbx">
+                    <input id="isAdmin-checkbox" className="checkbox-field" name="isAdmin" type="checkbox" onChange={handleChange} checked={fields.isAdmin === "1"} value={fields.isAdmin === "0" ? "1" : "0"} />
+                    <label className="input-label" for="isAdmin-checkbox">Admin</label>
+                    {/* {errors.password && <div>{errors.password}</div>} */}
+                </div>
+
                 <button className="login-form__btn" onClick={submit}>Login</button>
             </form>
-            {localStorage.getItem("token") && <Redirect to={"/"} />}
+            {localStorage.getItem("user") && <Redirect to={"/"} />}
         </div>
     );
 }

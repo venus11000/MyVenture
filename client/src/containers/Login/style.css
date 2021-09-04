@@ -23,6 +23,10 @@
     margin-bottom: 10px;
 }
 
+.checkbox-field {
+    margin-right: 5px;
+}
+
 .input-label {
     color: #aeaeae;
 }
