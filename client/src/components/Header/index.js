@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getCategories, getSubCategoriesByCategoryId } from "../../core/category";
 import "./style.css";
 
@@ -40,6 +40,10 @@ const Header = () => {
     let user = localStorage.getItem("user");
     user = user ? JSON.parse(user) : null;
 
+    const location = useLocation();
+
+    console.log(location)
+
     useEffect(() => {
         getCategories()
             .then((categories) => {
@@ -56,7 +60,11 @@ const Header = () => {
             <div className="header-container">
                 <Link to="/"><div className="header_logo">My Venture</div></Link>
                 <div>
+                    <Link className="menu-item" to="/"> Homepage</Link>
+                    <Link className="menu-item" to="/products"> products</Link>
                     <Link className="menu-item" to="/search"><i class="fas fa-search"></i> Search</Link>
+                    <Link className="menu-item" to="/contact-us"> Contact Us</Link>
+                    <Link className="menu-item" to="/about"> About</Link>
                     {user ?
                         <>
                             <Link className="menu-item" to="/appointments">My Appointment</Link>
@@ -71,7 +79,7 @@ const Header = () => {
             </div>
 
             {/* Secondary Header */}
-            {!user && <div className="category-items">
+            {!user && location.pathname === "/products" && <div className="category-items">
                 {categories.map(category => (
                     <div className="category-wrapper" key={category._id}
                         onMouseEnter={() => setActiveCat(category._id)}
@@ -100,7 +108,7 @@ const Header = () => {
                             <Link to={"/category/list"}>List</Link>
                         </div>
                     </div>
-                    
+
                     <div class="dropdown">
                         <button class="dropbtn">Sub Category</button>
                         <div class="dropdown-content">
@@ -108,7 +116,7 @@ const Header = () => {
                             <Link to={"/sub-category/list"}>List</Link>
                         </div>
                     </div>
-                    
+
                     <div class="dropdown">
                         <button class="dropbtn">Products</button>
                         <div class="dropdown-content">

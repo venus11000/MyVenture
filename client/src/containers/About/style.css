@@ -1,0 +1,31 @@
+.about-section {
+    background-image: url("../../assets/about.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.inner-container{
+	width: 50%;
+	float: justify;
+	padding: 100px;
+
+}
+.inner-container h1{
+	margin-bottom: 25px;
+	font-size: 50px;
+	font-weight: 800;
+
+}
+.broder{
+	height: 4px;
+	width: 100px;
+	background-color: rgb(1,60,28);
+}
+.text{
+	font-size: 25px;
+	color: #0a0a0a;
+	line-height: 25px;
+	text-align:jestify;
+	margin-bottom: 100px;
+}

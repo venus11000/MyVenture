@@ -1,0 +1,31 @@
+.contact-section {
+    background-image: url("../../assets/contact-us.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.inner-container{
+	width: 50%;
+	float: center;
+	padding: 100px;
+
+}
+.inner-container h1{
+	margin-bottom: 30px;
+	font-size: 30px;
+	font-weight: 800;
+
+}
+.broder{
+	height: 4px;
+	width: 100px;
+	background-color: rgb(1,60,28);
+}
+.text{
+	font-size: 30px;
+	color: #f6f9fa;
+	line-height: 30px;
+	text-align:jestify;
+	margin-bottom: 40px;
+}

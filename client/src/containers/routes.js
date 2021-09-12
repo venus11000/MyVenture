@@ -16,6 +16,8 @@ import ListSubCategory from "./SubCategoryCRUD/ListSubCategories";
 import CreateProduct from "./ProductCRUD/CreateProduct";
 import EditProduct from "./ProductCRUD/EditProduct";
 import ListProduct from "./ProductCRUD/ListProducts";
+import { ContactUs } from "./ContactUs";
+import { About } from "./About";
 
 const App = () => {
     return (
@@ -28,6 +30,8 @@ const App = () => {
                         <Route path="/products" exact component={ProductsList} />
                         <Route path="/product-details" exact component={ProductDetails} />
                         <Route path="/search" exact component={Search} />
+                        <Route path="/contact-us" exact component={ContactUs} />
+                        <Route path="/about" exact component={About} />
                         <Route path="/login" exact component={Login} />
                         <Route path="/register" exact component={Register} />
                         <Route path="/category/create" exact component={CreateCategory} />

@@ -1,0 +1,19 @@
+.homepage-section {
+    background-image: url("../../assets/homepage-background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+.homepage-section > .title{
+	position: absolute;
+	top: 30%;
+	left: 20px;
+	transform: translate(-50% -50%);
+}
+
+.homepage-section > .title > h1 {
+    font-size: 30px;
+    color: #d8232a;
+}

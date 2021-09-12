@@ -1,9 +1,11 @@
-import ProductsList from "../ProductsList";
+import "./style.css";
 
 const Homepage = () => {
     return (
-        <div>
-            <ProductsList />
+        <div className="homepage-section">
+            <div className="title">
+                <h1> Build Your Dream</h1>
+            </div>
         </div>
     );
 }
