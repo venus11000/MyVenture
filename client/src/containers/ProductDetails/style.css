@@ -89,3 +89,7 @@
     /* background-origin: content-box; */
     padding: 5px;
 }
+
+.product-details__card .btn-primary {
+    margin-right: 10px;
+}
