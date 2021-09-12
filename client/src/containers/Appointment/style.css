@@ -1,0 +1,29 @@
+.appointments-container {}
+
+
+.appointments-container .page-header {
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.appointments__card-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.appointments__card {
+    box-shadow: 0 4px 14px 0 rgb(0 0 0 / 50%);
+    margin: 10px;
+    padding: 10px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    min-width: 300px;
+    /* width: 100%; */
+}

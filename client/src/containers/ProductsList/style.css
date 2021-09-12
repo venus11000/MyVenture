@@ -57,3 +57,7 @@
     font-weight: 600;
     text-align: center;
 }
+
+.product-card .btn-primary {
+    margin-right: 10px;
+}

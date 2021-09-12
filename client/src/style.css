@@ -49,6 +49,12 @@ a {
     border-color: #df444f;
 }
 
+.btn-primary:disabled:hover,
+.btn-primary-outlined:disabled:hover {
+    cursor: not-allowed;
+    background-color: #fff;
+}
+
 .container {
     min-height: calc(79vh);
 }

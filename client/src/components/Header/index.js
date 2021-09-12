@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import { getCategories, getSubCategoriesByCategoryId } from "../../core/category";
 import "./style.css";
 
@@ -41,8 +41,9 @@ const Header = () => {
     user = user ? JSON.parse(user) : null;
 
     const location = useLocation();
+    const history = useHistory();
 
-    console.log(location)
+    console.log(location, history)
 
     useEffect(() => {
         getCategories()
@@ -67,8 +68,11 @@ const Header = () => {
                     <Link className="menu-item" to="/about"> About</Link>
                     {user ?
                         <>
-                            <Link className="menu-item" to="/appointments">My Appointment</Link>
-                            <Link className="menu-item" to="/account"><i class="far fa-user-circle"></i> Account</Link>
+                            {user.isAdmin !== "1" && <Link className="menu-item" to="/my-appointments">My Appointment</Link>}
+                            <span className="menu-item" onClick={() => {
+                                localStorage.removeItem("user");
+                                history.push("/");
+                            }}><i class="far fa-power-off"></i> Logout</span>
                         </>
                         : <>
                             <Link className="menu-item" to="/register">Register</Link>
@@ -122,6 +126,14 @@ const Header = () => {
                         <div class="dropdown-content">
                             <Link to={"/product/create"}>Create</Link>
                             <Link to={"/product/list"}>List</Link>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Appointments</button>
+                        <div class="dropdown-content">
+                            {/* <Link to={"/product/create"}>Create</Link> */}
+                            <Link to={"/appointments/list"}>List</Link>
                         </div>
                     </div>
                 </div>}

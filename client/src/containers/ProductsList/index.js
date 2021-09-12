@@ -8,6 +8,7 @@ import ProductsListing from "./ProductsListing";
 const ProductsList = () => {
     const [products, setProducts] = useState([]);
     const location = useLocation();
+    const user = JSON.parse(localStorage.getItem("user"));
 
     useEffect(() => {
         const currentPath = location.pathname;
@@ -28,7 +29,7 @@ const ProductsList = () => {
 
     return (
         <div className="product-list-container">
-            <ProductsListing products={products} />
+            <ProductsListing products={products} user={user} />
         </div>
     );
 }

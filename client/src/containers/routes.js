@@ -18,6 +18,8 @@ import EditProduct from "./ProductCRUD/EditProduct";
 import ListProduct from "./ProductCRUD/ListProducts";
 import { ContactUs } from "./ContactUs";
 import { About } from "./About";
+import MyAppointments from "./Appointment/MyAppointments";
+import ListAppointments from "./Appointment/ListAppointments";
 
 const App = () => {
     return (
@@ -43,6 +45,8 @@ const App = () => {
                         <Route path="/product/create" exact component={CreateProduct} />
                         <Route path="/product/edit/:id" exact component={EditProduct} />
                         <Route path="/product/list" exact component={ListProduct} />
+                        <Route path="/my-appointments" exact component={MyAppointments} />
+                        <Route path="/appointments/list" exact component={ListAppointments} />
                     </div>
                 </Switch>
                 <Footer />

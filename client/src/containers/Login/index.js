@@ -47,7 +47,11 @@ const Login = () => {
             if (response && response.user) {
                 localStorage.setItem("token", response.token);
                 localStorage.setItem("user", JSON.stringify(response.user));
-                history.push("/");
+                if(response.user && response.user.isAdmin === "1") {
+                    history.push("/product/list");
+                } else {
+                    history.push("/");
+                }
             } else {
                 setResponse(response);
             }

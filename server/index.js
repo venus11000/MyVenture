@@ -6,6 +6,7 @@ const cors = require("cors");
 const path = require('path');
 
 //  Routes
+const appointmentRoutes = require("./routes/appointment");
 const categoryRoutes = require("./routes/category");
 const subCategoryRoutes = require("./routes/subCategory");
 const productRoutes = require("./routes/product");
@@ -36,6 +37,7 @@ app.use(morgan("dev"));
 // app.use(expressValidator());
 
 //  routes
+app.use("/api/appointment/", appointmentRoutes);
 app.use("/api/category/", categoryRoutes);
 app.use("/api/sub-category/", subCategoryRoutes);
 app.use("/api/product/", productRoutes);
